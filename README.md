@@ -1,3 +1,4 @@
+![Preview of BBClean](https://cloud.githubusercontent.com/assets/791189/6587656/7c5ba926-c787-11e4-9578-15f6f4b3399e.png)
 # BBClean - Blackboard Cleanup
 
 This Chrome browser plugin aims at removing some unnecessary content from Blackboard. It is currently optimised for the Blackboard of the TU Delft, but it can potentially be extended to support many more different Blackboard systems, and versions.
