@@ -12,21 +12,6 @@ navFrame.ready(function(){
 	var logo = navFrame.find("#topTabs .brandingImgWrap");
 	navFrame.find("#topTabs").css("height", "47px");
 	logo.wrap("<td id='logo'></td>").parent().insertBefore(firstMenuItem);
-
-	/* Make logo a _blank link */
-	logo.find("a").attr("target", "_blank");
-	
-	/* Remove MyContent */
-	navFrame.find("[id='My Content']").remove();
-
-	/* Remove MyStudentInfo */
-	navFrame.find("#MyStudentInfo").remove();
-
-	/* Remove MyCampusLife, Add Collegerama */
-	navFrame.find("[id='My Campus Life']")
-		.attr("id","Collegerama").insertBefore(navFrame.find("#Organizations"))
-		.find("a").attr("href", "http://collegeramacolleges.tudelft.nl/online/faculteiten/").attr("target", "_blank")
-		.find("span:not(.hideoff)").text("Collegerama");
 });
 
 contentFrame.ready(function(){
