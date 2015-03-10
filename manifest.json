@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+
+  "name": "BBClean - Cleanup your schools Blackboard page",
+  "description": "Blackboard tends to not be very good concerning screen space. This plugin tries to fix this.",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "https://blackboard.tudelft.nl/*",
+    "https://ajax.googleapis.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://blackboard.tudelft.nl/*"],
+      "js": ["jquery.js", "clean.js"]
+    },
+    {
+      "matches": ["https://blackboard.tudelft.nl/*"],
+      "all_frames": true,
+      "css": ["bbclean.css"]
+    }
+  ]
+}
