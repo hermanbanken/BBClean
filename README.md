@@ -16,7 +16,7 @@ Until we publish the plugin to the Chrome Web Store the installation process is 
 - [Download the zip file](https://github.com/hermanbanken/BBClean/archive/master.zip) containing the sources
 - Extract the zip somewhere
 - Go to the Chrome menu > More tools > Extensions
-- Click the *Load unpacked extension...* button
+- Click the [*Load unpacked extension...* button](https://cloud.githubusercontent.com/assets/791189/6587148/d62da776-c780-11e4-9100-63f80c50f29e.png)
 - Select the folder (that is the extracted zip)
 - Surf to Blackboard and enjoy!
 
