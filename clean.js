@@ -7,6 +7,7 @@ var contentFrame = $("#contentFrame").css("height", "+=42").fc(),
 		navFrame = $("#navFrame").css("height", "-=42").fc();
 
 navFrame.ready(function(){
+	/* Move logo */
 	var firstMenuItem = $("#appTabList tr td", navFrame).first();
 	var logo = navFrame.find("#topTabs .brandingImgWrap");
 	navFrame.find("#topTabs").css("height", "47px");
@@ -14,9 +15,11 @@ navFrame.ready(function(){
 });
 
 contentFrame.ready(function(){
+	/* Remove unnecessary bars */
 	contentFrame.find("#paneTabs, #actionbar").remove();
 	contentFrame.find(".locationPane").find("> .paneTabs").remove();
 	contentFrame.find("#content > .container");
+	
 	/* Move ugly bulletin messages */
 	var texts = contentFrame.find(".vtbegenerated:not(.portlet *)");
 	if(texts.size()){
