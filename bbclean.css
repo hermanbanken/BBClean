@@ -1,0 +1,29 @@
+body > .locationPane { margin-top: 0; }
+body > .locationPane > .contentPaneWide { margin: 0; }
+body > .locationPane > .contentPaneWide > .paneTabs { display: none; }
+body > .locationPane #content { padding-top: 4px; border: none; }
+body > .locationPane #content > #actionbar { display: none; }
+body > .locationPane #content > .container > .contentBox { border: 0 !important; border-top: 0 !important; }
+.containerPortal, .portal .container {
+  padding: 0 5px !important;
+}
+
+.appTabs #logo a,
+.appTabs #logo a:hover, 
+.appTabs #logo a:focus { background: none; padding: 0; margin: 5px 10px 0 0; }
+
+#moduleReorderControls { display: none; }
+
+/* Remove ugly banners */
+.vtbegenerated { display: none; }
+
+#quick_links_wrap { top: 0 !important; border-radius: 0 0 4px 0 !important; }
+
+.bouncer .brandingImgWrap { display: none; }
+.bouncer .tabWrapper-left .brandingImgWrap { display: block; }
+
+#VBMessages {
+	padding: 0px 15px;
+	background: white;
+	color: black;
+}
