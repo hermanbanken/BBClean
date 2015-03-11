@@ -17,8 +17,11 @@ navFrame.ready(function(){
 	logo.wrap("<td id='logo'></td>").parent().insertBefore(firstMenuItem);
 
 	/* Make logo a _blank link */
-	logo.find("a").attr("target", "_blank");
-	
+	logo.find("a").attr("href", "https://blackboard.tudelft.nl/webapps/portal/frameset.jsp?tab_tab_group_id=_9_1");
+	logo.find("a").attr("target", "_top");
+	if(window.devicePixelRatio > 1)
+		logo.find("img").attr("src", chrome.extension.getURL("tudelft_logo.png"));
+
 	/* Remove MyContent */
 	navFrame.find("[id='My Content']").remove();
 
