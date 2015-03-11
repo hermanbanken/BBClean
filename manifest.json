@@ -19,5 +19,6 @@
       "all_frames": true,
       "css": ["bbclean.css"]
     }
-  ]
+  ],
+  "web_accessible_resources": ["tudelft_logo.png"]
 }
