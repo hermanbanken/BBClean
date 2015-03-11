@@ -8,6 +8,7 @@ This Chrome browser plugin aims at removing some unnecessary content from Blackb
 - Moves the TU Delft (or other) logo next to the menu: reduces header by 42 pixels.
 - Removes customisation header bar, as this is now drag and drop by default anyway, and who does really apply colours to his Blackboard? No one right?
 - Moves ugly (!) vtbegenerated messages (the ones that look like they are from the 1992 internetz) to the right of the menu, so they are still visible but without the ugly style and less obtrusive.
+- Cache all module content in LocalStorage, and delay real loading 5 sec.
 
 Feedback and extensions are welcome!
 
