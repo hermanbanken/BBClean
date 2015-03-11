@@ -7,9 +7,14 @@ $.fn.fw = function(){
 }
 
 var contentFrame = $("#contentFrame").css("height", "+=42").fc(),
-		navFrame = $("#navFrame").css("height", "-=42").fc();
+		navFrame = $("#navFrame").css("height", "-=42").fc(),
+	  contentWin = $("#contentFrame").fw(), 
+		  navWin = $("#navFrame").fw();
 
-navFrame.ready(function(){
+$(navWin).on("DOMContentLoaded", function(){
+	/* The bodies seem to be swapped, re-get the contentDocument */
+	var navFrame = $("#navFrame").fc();
+
 	/* Move logo */
 	var firstMenuItem = $("#appTabList tr td", navFrame).first();
 	var logo = navFrame.find("#topTabs .brandingImgWrap");
@@ -35,7 +40,7 @@ navFrame.ready(function(){
 		.find("span:not(.hideoff)").text("Collegerama");
 });
 
-contentFrame.ready(function(){
+$(contentWin).on("DOMContentLoaded", function(){
 	/* The bodies seem to be swapped, re-get the contentDocument */
 	var contentFrame = $("#contentFrame").fc(),
 		navFrame = $("#navFrame").fc();
@@ -43,8 +48,9 @@ contentFrame.ready(function(){
 	/* Remove unnecessary bars */
 	contentFrame.find("#paneTabs, #actionbar").remove();
 	contentFrame.find(".locationPane").find("> .paneTabs").remove();
-	contentFrame.find("[id='module:_2914_1']").remove(); //Blackboard IM module
-	contentFrame.find("[id='module:_2674_1']").remove(); //Mobile learning module
+	/* Can't fully remove the following as an exception whould be thrown: */
+	contentFrame.find("[id='module:_2914_1']").css('display', 'none'); //Blackboard IM module
+	contentFrame.find("[id='module:_2674_1']").css('display', 'none'); //Mobile learning module
 	
 	/* Move ugly bulletin messages */
 	var texts = contentFrame.find(".vtbegenerated:not(.portlet *)");
