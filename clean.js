@@ -1,6 +1,9 @@
 function log(){ if(console) console.log.apply(console, arguments); };
 $.fn.fc = function(){
-	return $(this.get(0).contentDocument);
+	return $(this.get(0).contentDocument.body);
+}
+$.fn.fw = function(){
+	return this.get(0).contentWindow;
 }
 
 var contentFrame = $("#contentFrame").css("height", "+=42").fc(),
@@ -30,12 +33,15 @@ navFrame.ready(function(){
 });
 
 contentFrame.ready(function(){
+	/* The bodies seem to be swapped, re-get the contentDocument */
+	var contentFrame = $("#contentFrame").fc(),
+		navFrame = $("#navFrame").fc();
+
 	/* Remove unnecessary bars */
 	contentFrame.find("#paneTabs, #actionbar").remove();
 	contentFrame.find(".locationPane").find("> .paneTabs").remove();
 	contentFrame.find("[id='module:_2914_1']").remove(); //Blackboard IM module
 	contentFrame.find("[id='module:_2674_1']").remove(); //Mobile learning module
-	contentFrame.find("#content > .container");
 	
 	/* Move ugly bulletin messages */
 	var texts = contentFrame.find(".vtbegenerated:not(.portlet *)");
@@ -52,10 +58,10 @@ contentFrame.ready(function(){
 			asDOM.removeAttr("style").find("[style]").removeAttr("style");
 			h = asDOM.html();
 			$("<td id='VBMessages'><div class='vbmessages'></div></td>").insertAfter(navFrame.find("#topTabs #Help"));
-			navFrame.find("#VBMessages .vbmessages").append(h);		
+			navFrame.find("#VBMessages .vbmessages").append(h);
+			texts.remove();
 		}
 	}
-	texts.remove();
 });
 
 jQuery(document).ready(function(){
