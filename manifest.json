@@ -12,12 +12,19 @@
   "content_scripts": [
     {
       "matches": ["https://blackboard.tudelft.nl/*"],
-      "js": ["jquery.js", "clean.js"]
+      "js": ["jquery.js", "clean.js"],
+      "run_at": "document_idle"
     },
     {
       "matches": ["https://blackboard.tudelft.nl/*"],
       "all_frames": true,
       "css": ["bbclean.css"]
+    },
+    {
+      "matches": ["https://blackboard.tudelft.nl/*"],
+      "all_frames": true,
+      "js": ["lazyajax.js"],
+      "run_at": "document_start"
     }
   ]
 }
