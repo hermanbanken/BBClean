@@ -33,6 +33,8 @@ contentFrame.ready(function(){
 	/* Remove unnecessary bars */
 	contentFrame.find("#paneTabs, #actionbar").remove();
 	contentFrame.find(".locationPane").find("> .paneTabs").remove();
+	contentFrame.find("[id='module:_2914_1']").remove(); //Blackboard IM module
+	contentFrame.find("[id='module:_2674_1']").remove(); //Mobile learning module
 	contentFrame.find("#content > .container");
 	
 	/* Move ugly bulletin messages */
