@@ -3,7 +3,8 @@ function replace(){
     if(typeof Ajax != 'undefined')
     (function(old){
         Ajax.Request = function(url, options){
-            var key = url+"|"+options.parameters,
+            var args = arguments,
+                key = url+"|"+options.parameters,
                 cache = localStorage.getItem(key),
                 success = options.onSuccess;
 
@@ -13,7 +14,10 @@ function replace(){
                     responseXML: (new DOMParser()).parseFromString(cache, "text/xml")
                 });
                 // console.log("From cache", (new DOMParser()).parseFromString(cache, "text/xml"));
-                return;
+                // Refresh, but later
+                setTimeout(function(){
+                    old.apply(this, args);
+                }.bind(this),1000*5);
             } else {
                 options.onSuccess = function(res){
                     console.log("Stored in cache");
@@ -23,14 +27,13 @@ function replace(){
                     return ret;
                 }
             }
-            
+
             // console.log("Intercepted Ajax.Request", arguments);
-            return old.apply(this, arguments);
+            return old.apply(this, args);
         }
         Ajax.Request.prototype = old.prototype;
         Ajax.Request.Events = old.Events;
     })(Ajax.Request);
-    else console.warn("Ajax.Request not defined");
 }
 
 /* Inject RIGHT AFTER the Prototype.js script is loaded, but before the body's script tags execute. */
