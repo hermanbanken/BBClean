@@ -11,7 +11,7 @@ var contentFrame = $("#contentFrame").css("height", "+=42").fc(),
 	  contentWin = $("#contentFrame").fw(), 
 		  navWin = $("#navFrame").fw();
 
-$(navWin).on("DOMContentLoaded", function(){
+$(navWin).one("DOMContentLoaded load", function(){
 	/* The bodies seem to be swapped, re-get the contentDocument */
 	var navFrame = $("#navFrame").fc();
 
@@ -40,7 +40,7 @@ $(navWin).on("DOMContentLoaded", function(){
 		.find("span:not(.hideoff)").text("Collegerama");
 });
 
-$(contentWin).on("DOMContentLoaded", function(){
+$(contentWin).one("DOMContentLoaded load", function(){
 	/* The bodies seem to be swapped, re-get the contentDocument */
 	var contentFrame = $("#contentFrame").fc(),
 		navFrame = $("#navFrame").fc();
